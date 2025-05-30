@@ -495,23 +495,30 @@ const CreditCardDropdown = () => {
                       </div>
                     )}
                     
-                    {offer.Link ? (
-                      <button 
-                        onClick={() => window.open(offer.Link, "_blank")}
-                        className="view-details-btn"
-                        style={{ marginTop: '10px' }}
-                      >
-                        View Details
-                      </button>
-                    ) : (
-                      <button 
-                        onClick={() => toggleOfferDetails("bms", index)}
-                        className={`details-btn ${expandedOfferIndex.bms === index ? "active" : ""}`}
-                        style={{ marginTop: '10px' }}
-                      >
-                        {expandedOfferIndex.bms === index ? "Hide Details" : "Click For More Details"}
-                      </button>
-                    )}
+{offer.Link ? (
+  <a 
+    href={offer.Link} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ textDecoration: "none" }}
+  >
+    <button 
+      className="view-details-btn"
+      style={{ marginTop: '10px', cursor: 'pointer' }}
+    >
+      View Details
+    </button>
+  </a>
+) : (
+  <button 
+    onClick={() => toggleOfferDetails("bms", index)}
+    className={`details-btn ${expandedOfferIndex.bms === index ? "active" : ""}`}
+    style={{ marginTop: '10px' }}
+  >
+    {expandedOfferIndex.bms === index ? "Hide Details" : "Click For More Details"}
+  </button>
+)}
+
                   </div>
                 ))}
               </div>
