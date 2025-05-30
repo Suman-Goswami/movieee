@@ -341,7 +341,16 @@ const CreditCardDropdown = () => {
               <h2>PVR Offers</h2>
               <div className="offer-row">
                 {selectedPvrOffers.map((offer, index) => (
-                  <div key={`pvr-${index}`} className="offer-card" style={{backgroundColor: "#39641D", color: "white"}}>
+                  <div 
+                    key={`pvr-${index}`} 
+                    className={`offer-card ${expandedOfferIndex.pvr === index ? 'expanded' : ''}`}
+                    style={{
+                      backgroundColor: "#39641D", 
+                      color: "white",
+                      height: expandedOfferIndex.pvr === index ? 'auto' : '400px',
+                      overflow: 'hidden'
+                    }}
+                  >
                     {offer.Image && (
                       <img 
                         src={offer.Image} 
@@ -358,7 +367,14 @@ const CreditCardDropdown = () => {
                     {offer.Validity && <p><strong>Validity:</strong> {offer.Validity}</p>}
                     
                     {expandedOfferIndex.pvr === index && (
-                      <div className="terms-container">
+                      <div className="terms-container" style={{ 
+                        maxHeight: '200px',
+                        overflowY: 'auto',
+                        padding: '10px',
+                        backgroundColor: 'rgba(0,0,0,0.1)',
+                        borderRadius: '5px',
+                        marginTop: '10px'
+                      }}>
                         <h4>Offer Details:</h4>
                         <p>{offer.Offers}</p>
                       </div>
@@ -367,6 +383,7 @@ const CreditCardDropdown = () => {
                     <button 
                       onClick={() => toggleOfferDetails("pvr", index)}
                       className={`details-btn ${expandedOfferIndex.pvr === index ? "active" : ""}`}
+                      style={{ marginTop: '10px' }}
                     >
                       {expandedOfferIndex.pvr === index ? "Hide Details" : "Click For More Details"}
                     </button>
@@ -381,7 +398,16 @@ const CreditCardDropdown = () => {
               <h2>INOX Offers</h2>
               <div className="offer-row">
                 {selectedInoxOffers.map((offer, index) => (
-                  <div key={`inox-${index}`} className="offer-card" style={{backgroundColor: "#39641D", color: "white"}}>
+                  <div 
+                    key={`inox-${index}`} 
+                    className={`offer-card ${expandedOfferIndex.inox === index ? 'expanded' : ''}`}
+                    style={{
+                      backgroundColor: "#39641D", 
+                      color: "white",
+                      height: expandedOfferIndex.inox === index ? 'auto' : '400px',
+                      overflow: 'hidden'
+                    }}
+                  >
                     {offer.Image && (
                       <img 
                         src={offer.Image} 
@@ -398,7 +424,14 @@ const CreditCardDropdown = () => {
                     {offer.Validity && <p><strong>Validity:</strong> {offer.Validity}</p>}
                     
                     {expandedOfferIndex.inox === index && (
-                      <div className="terms-container">
+                      <div className="terms-container" style={{ 
+                        maxHeight: '200px',
+                        overflowY: 'auto',
+                        padding: '10px',
+                        backgroundColor: 'rgba(0,0,0,0.1)',
+                        borderRadius: '5px',
+                        marginTop: '10px'
+                      }}>
                         <h4>Offer Details:</h4>
                         <p>{offer.Offers}</p>
                       </div>
@@ -407,6 +440,7 @@ const CreditCardDropdown = () => {
                     <button 
                       onClick={() => toggleOfferDetails("inox", index)}
                       className={`details-btn ${expandedOfferIndex.inox === index ? "active" : ""}`}
+                      style={{ marginTop: '10px' }}
                     >
                       {expandedOfferIndex.inox === index ? "Hide Details" : "Click For More Details"}
                     </button>
@@ -421,7 +455,16 @@ const CreditCardDropdown = () => {
               <h2>BookMyShow Offers</h2>
               <div className="offer-row">
                 {selectedBookMyShowOffers.map((offer, index) => (
-                  <div key={`bms-${index}`} className="offer-card" style={{backgroundColor: "#39641D", color: "white"}}>
+                  <div 
+                    key={`bms-${index}`} 
+                    className={`offer-card ${expandedOfferIndex.bms === index ? 'expanded' : ''}`}
+                    style={{
+                      backgroundColor: "#39641D", 
+                      color: "white",
+                      height: expandedOfferIndex.bms === index ? 'auto' : '400px',
+                      overflow: 'hidden'
+                    }}
+                  >
                     {offer.Image && (
                       <img 
                         src={offer.Image} 
@@ -439,7 +482,14 @@ const CreditCardDropdown = () => {
                     {offer.Validity && <p><strong>Validity:</strong> {offer.Validity}</p>}
                     
                     {expandedOfferIndex.bms === index && (
-                      <div className="terms-container">
+                      <div className="terms-container" style={{ 
+                        maxHeight: '200px',
+                        overflowY: 'auto',
+                        padding: '10px',
+                        backgroundColor: 'rgba(0,0,0,0.1)',
+                        borderRadius: '5px',
+                        marginTop: '10px'
+                      }}>
                         <h4>Offer Details:</h4>
                         <p>{offer.Offers || "No additional details available"}</p>
                       </div>
@@ -449,6 +499,7 @@ const CreditCardDropdown = () => {
                       <button 
                         onClick={() => window.open(offer.Link, "_blank")}
                         className="view-details-btn"
+                        style={{ marginTop: '10px' }}
                       >
                         View Details
                       </button>
@@ -456,6 +507,7 @@ const CreditCardDropdown = () => {
                       <button 
                         onClick={() => toggleOfferDetails("bms", index)}
                         className={`details-btn ${expandedOfferIndex.bms === index ? "active" : ""}`}
+                        style={{ marginTop: '10px' }}
                       >
                         {expandedOfferIndex.bms === index ? "Hide Details" : "Click For More Details"}
                       </button>
